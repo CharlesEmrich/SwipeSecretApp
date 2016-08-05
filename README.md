@@ -1,5 +1,5 @@
 # SwipeSecretApp
-Like tinder, but for matching people based on their mutual appreciation of their secrets.
+It's like Tinder, but for matching people based on their mutual appreciation of each others' secrets.
 
 ### Requirement Implementation
 * Master Category : User Accounts
