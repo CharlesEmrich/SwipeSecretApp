@@ -1,0 +1,22 @@
+{
+  "name": "swipesecret",
+  "version": "1.0.0",
+  "description": "It's like Tinder, but for matching people based on their mutual appreciation of each others' secrets.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katesowles/SwipeSecretApp.git"
+  },
+  "author": "Kate Sowles <katesowles@gmail.com> (http://katesowles.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katesowles/SwipeSecretApp/issues"
+  },
+  "homepage": "https://github.com/katesowles/SwipeSecretApp#readme"
+}
