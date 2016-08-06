@@ -42,6 +42,15 @@ If both users approve that secondary step then they'll each be offered the other
 * _____
 * _____
 
+### Information collected about user/secret throughout use
+
+* Matches (for User)
+* Date SignedUp (for User)
+* Date Submitted (for Secret)
+* Number of Views (for Secret)
+* Number of approves (for Secret)
+* Number of rejects (for Secret)
+
 ### Coding Standards
 
 * Fat Arrow functions when applicable:
