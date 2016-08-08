@@ -1,0 +1,27 @@
+[
+  {
+    "firstName" : "Sam",
+    "lastName" : "Gold",
+    "password" : "password1",
+    "email" : "samgold@gmail.com",
+    "phone" : "555-123-4567",
+    "location" : "Portland, OR",
+    "gender" : "Male",
+    "orientation" : "Straight",
+    "interestedIn" : "Women",
+    "secret" : "i have no secrets",
+    "dateSignedUp" : "20160804"
+  },
+  {
+    "originatorId" : "",
+    "targetId" : "",
+    "targetSecretId" : "",
+    "status" : "",
+    "mutual" : "",
+    "confirm" : ""
+  },
+  {
+    "text" : "",
+    "dateSubmitted" : ""
+  }
+]
