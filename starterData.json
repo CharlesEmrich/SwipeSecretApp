@@ -1,0 +1,47 @@
+[
+  {
+    "details" : {
+      "first" : "Sam",
+      "last" : "Gold",
+      "password" : "password1",
+      "email" : "samgold@gmail.com",
+      "phone" : "555-123-4567",
+      "location" : "Portland, OR"
+    },
+    "criteria" : {
+      "gender" : "Male",
+      "orientation" : "Straight",
+      "interestedIn" : "Women"
+    },
+    "secret" : "secret123",
+    "interactions" : {
+      "rejectedBy" : [
+
+      ],
+      "rejected" : [
+
+      ],
+      "approvedBy" : [
+
+      ],
+      "approved" : [
+
+      ],
+      "mutualMatch" : [
+
+      ],
+      "secondaryConfirm" : [
+
+      ],
+      "blockedBy" : [
+
+      ],
+      "blocked" : [
+
+      ]
+    },
+    "stats" : {
+      "dateSignedUp" : ""
+    }
+  }
+]
