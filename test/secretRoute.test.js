@@ -8,8 +8,8 @@ chai.use(chaiHttp);
 describe('secretRoute API', ()=>{
 
   // clears out the db
-  before(done => {
-    connection.on('open', () => {
+  before(done=> {
+    connection.on('open', ()=> {
       connection.db.dropDatabase(done);
     });
   });
@@ -71,6 +71,9 @@ describe('secretRoute API', ()=>{
       .catch(done);
   });
 
-  after(done=> connection.close(done));
+  after(done=> {
+    connection.close();
+    done();
+  });
 
 });
