@@ -15,8 +15,6 @@
     "url": "git+https://github.com/katesowles/SwipeSecretApp.git"
   },
   "author": {
-    "developer": "Danielle Heberling <daheber@gmail.com>",
-    "developer": "Kate Sowles <katesowles@gmail.com>",
     "developer": "Charles Emrich <charles.emrich@gmail.com>"
   },
   "license": "MIT",
