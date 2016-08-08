@@ -16,7 +16,9 @@
     "url": "git+https://github.com/katesowles/SwipeSecretApp.git"
   },
   "author": {
-    "developer": "Kate Sowles <katesowles@gmail.com>"
+    "developer": "Danielle Heberling <daheber@gmail.com>",
+    "developer": "Kate Sowles <katesowles@gmail.com>",
+    "developer": "Charles Emrich <charles.emrich@gmail.com>"
   },
   "license": "MIT",
   "bugs": {
@@ -30,6 +32,7 @@
     "nodemon": "^1.10.0"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongoose": "^4.5.8"
   }
