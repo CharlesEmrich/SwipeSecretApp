@@ -10,8 +10,6 @@ const Secret = require('../lib/models/secretModel');
 const User = require('../lib/models/userModel');
 
 describe('user', () => {
-
-
   it('requires text', (done) => {
     const user = new User();
     user.validate((err) => {
@@ -20,31 +18,30 @@ describe('user', () => {
     });
   });
 
-  // const rupSecret = new Secret({
-  //   text: 'Sometimes I set the drapes aflame to teach the help a lesson.'
-  // });
+  const rupSecret = new Secret({
+    text: 'Sometimes I set the drapes aflame to teach the help a lesson.'
+  });
 
-  // const rupert = new User({
-  //   name: {
-  //     first: 'Rupert',
-  //     last: 'Thrumboldt'
-  //   },
-  //   contact: {
-  //     email: 'thrumblers@gmail.com',
-  //     phone: '867-5309'
-  //   },
-  //   criteria: {
-  //     gender: 'male',
-  //     orientation: 'gay',
-  //     interestedIn: 'men'
-  //   },
-  //   secret: '' //TODO: Populate this.
-  // });
+  const rupert = new User({
+    details: {
+      first: 'Rupert',
+      last: 'Thrumboldt',
+      password: 'Napoleon',
+      email: 'thrumblers@gmail.com',
+      phone: '867-5309',
+      location: 'Middlewaidth, UK'
+    },
+    criteria: {
+      gender: 'male',
+      orientation: 'gay',
+      interestedIn: 'men'
+    },
+    secret: rupSecret._id
+  });
 
-  it.skip('requires text', (done) => {
-    const user = new User();
-    user.validate((err) => {
-      if (!err) done('secretModel should require text.');
+  it('test user exists', (done) => {
+    rupert.validate((err) => {
+      if (err) done('userModel should create a User.');
       else done();
     });
   });
