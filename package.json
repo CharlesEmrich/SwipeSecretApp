@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "mocha -w"
   },
   "repository": {
     "type": "git",
@@ -25,12 +26,15 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "json-schema-faker": "^0.3.6",
     "mocha": "^3.0.1",
     "nodemon": "^1.10.0"
   },
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.7",
     "mongoose": "^4.5.8"
   }
 }
