@@ -23,19 +23,15 @@ describe('user', () => {
   });
 
   const rupert = new User({
-    details: {
-      first: 'Rupert',
-      last: 'Thrumboldt',
-      password: 'Napoleon',
-      email: 'thrumblers@gmail.com',
-      phone: '867-5309',
-      location: 'Middlewaidth, UK'
-    },
-    criteria: {
-      gender: 'male',
-      orientation: 'gay',
-      interestedIn: 'men'
-    },
+    firstName: 'Rupert',
+    lastName: 'Thrumboldt',
+    password: 'Napoleon',
+    email: 'thrumblers@gmail.com',
+    phone: '867-5309',
+    location: 'Middlewaidth, UK',
+    gender: 'male',
+    orientation: 'gay',
+    interestedIn: 'men',
     secret: rupSecret._id
   });
 
