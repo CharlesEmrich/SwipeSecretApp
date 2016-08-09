@@ -21,8 +21,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-
-
 h2, h6 {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -47,8 +45,15 @@ a:hover, a:active {
   text-decoration: none;
 }
 
+p {
+  text-align: justify;
+  line-height: 1.5em;
+  /*font-size: 1em;*/
+}
+
 body {
   margin: 0px;
+  background-color: black;
 }
 
 .fullbleed {
@@ -65,8 +70,13 @@ body {
   height: 100vh;
 }
 
-.quarter {
-  height: 25vh;
+.custom {
+  height: 100%;
+}
+
+.custom main {
+  margin: 10vh auto;
+
 }
 
 .scroll {
