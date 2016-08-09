@@ -6,7 +6,7 @@ chai.use(chaiHTTP);
 
 //Starts up the db connection
 const connection = require('../lib/setup-mongoose');
-const app = require('../lib/server');
+const app = require('../lib/app');
 
 describe('user/model api', () => {
   before(done => {
