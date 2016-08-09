@@ -9,9 +9,12 @@ describe('API end to end test', ()=>{
 
   // clears out the db
   before(done=> {
-    connection.on('open', ()=> {
-      connection.db.dropDatabase(done);
-    });
+    // connection.on('open', ()=> {
+    //   connection.db.dropDatabase(done);
+    // });
+    const drop = () => connection.db.dropDatabase(done);
+    if (connection.readyState === 1) drop();
+    else connection.on('open', drop);
   });
 
   const request = chai.request(app);
@@ -87,9 +90,9 @@ describe('API end to end test', ()=>{
     // check match algorithim
   });
 
-  after(done=> {
-    connection.close();
-    done();
-  });
+  // after(done=> {
+  //   connection.close();
+  //   done();
+  // });
 
 });
