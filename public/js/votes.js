@@ -2,20 +2,22 @@ $(function() {
   $('#blueBoy').on('click', function() {
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3000/interaction',
-      data: {
-        status: 'approve',
-        origin: 'myId',
-        target: 'theirId'
-      }
-    });
-    // .done(function() {console.log('boo');});
+      url: '/interaction',
+      contentType: 'application/json',
+      data: JSON.stringify(
+        {
+          status: 'approved'
+          // originatorId: ''
+        }
+      )
+    })
+    .done(function(a) {console.log('res', a);});
   });
 
   $('#redBoy').on('click', function() {
     $.ajax({
       method: 'POST',
-      url: '/interation',
+      url: '/interaction',
       data: {
         status: 'reject',
         origin: 'myId',
