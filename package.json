@@ -11,6 +11,9 @@
     "start": "node server.js",
     "watch": "mocha -w"
   },
+  "engines": {
+    "node": "6.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/katesowles/SwipeSecretApp.git"
