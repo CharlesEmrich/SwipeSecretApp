@@ -1,21 +1,21 @@
 const prompts = [
-    'I cannot ',
-    'I wish ',
-    'I blame ',
-    'I\'m afraid that ',
-    'I will only ',
-    'No one knows that ',
-    'I will never ',
-    'I worry that',
-    'I shouldn\'t ',
-    'I\'ve always suspected ',
-    'You don\'t know I ',
+    'I cannot ...',
+    'I wish ...',
+    'I blame ...',
+    'I\'m afraid that ...',
+    'I will only ...',
+    'No one knows that ...',
+    'I will never ...',
+    'I worry that ...',
+    'I shouldn\'t ...',
+    'I\'ve always suspected ...',
+    'You don\'t know I ...',
     'You\'d never guess I',
-    'As a kid, I ',
-    'Finally, I ',
-    'I don\'t believe ',
-    'I believe ',
-    'I\'m scared that '
+    'As a kid, I ...',
+    'Finally, I ...',
+    'I don\'t believe ...',
+    'I believe ...',
+    'I\'m scared that ...'
   ];
 const form = document.getElementById('signUpForm').elements;
 
@@ -26,9 +26,9 @@ $(document).ready(()=>{
   //Populates secret form field with a prompt
   //TODO: Make it so these can end with an ellipse that disappears when someone clicks into the form slot.
   $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
-  $('[name = "secret"]').change(function() {
-    console.log(this);
-  })
+  $('[name = "secret"]').one('keypress', function() {
+    this.value = this.value.replace('...','');
+  });
 });
 
 $('#stepOneButton').on('click', function(e){
