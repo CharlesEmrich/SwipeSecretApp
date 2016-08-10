@@ -1,13 +1,38 @@
+const prompts = [
+    'I cannot ',
+    'I wish ',
+    'I blame ',
+    'I\'m afraid that ',
+    'I will only ',
+    'No one knows that ',
+    'I will never ',
+    'I worry that',
+    'I shouldn\'t ',
+    'I\'ve always suspected ',
+    'You don\'t know I ',
+    'You\'d never guess I',
+    'As a kid, I ',
+    'Finally, I ',
+    'I don\'t believe ',
+    'I believe ',
+    'I\'m scared that '
+  ];
+
 $(document).ready(()=>{
   $('.stepTwo').hide();
   $('.stepThree').hide();
+
+  //Populates secret form field with a prompt
+  //TODO: Make it so these can end with an ellipse that disappears when someone clicks into the form slot.
+  $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
+
 });
 
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
   let form = document.getElementById('signUpForm').elements;
 
-  if(form.secret.value) {
+  if(prompts.indexOf(form.secret.value) === -1) {
     $('.stepOne').hide();
     $('.stepTwo').show();
     $('.stepThree').hide();
