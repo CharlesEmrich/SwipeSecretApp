@@ -29,7 +29,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "json-schema-faker": "^0.3.6",
     "mocha": "^3.0.1",
     "nodemon": "^1.10.0"
   },
@@ -37,10 +36,12 @@
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "handlebars": "^4.0.5",
     "jquery": "^3.1.0",
     "jquery-touchswipe": "^1.6.15",
     "jsonwebtoken": "^7.1.7",
     "mongoose": "^4.5.8",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "json-schema-faker": "^0.3.6"
   }
 }

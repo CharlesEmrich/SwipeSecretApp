@@ -19,25 +19,79 @@ const prompts = [
   ];
 const form = document.getElementById('signUpForm').elements;
 
+// when app loads OR joinButton OR logo are pressed, hides all but the "enter your secret" view
 $(document).ready(()=>{
   $('.stepTwo').hide();
   $('.stepThree').hide();
+  $('.login').hide();
+  $('.swipe').hide();
+  $('.confirm').hide();
+  $('.contact').hide();
+  $('.entry').show();
+  $('.stepOne').show();
 
   //Populates secret form field with a prompt
-  //TODO: Make it so these can end with an ellipse that disappears when someone clicks into the form slot.
   $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
   $('[name = "secret"]').one('keypress', function() {
     this.value = this.value.replace('...','');
   });
 });
 
+$('#joinNav').on('click', function(e){
+  e.preventDefault();
+  $('.stepTwo').hide();
+  $('.stepThree').hide();
+  $('.login').hide();
+  $('.swipe').hide();
+  $('.confirm').hide();
+  $('.contact').hide();
+  $('.entry').show();
+  $('.stepOne').show();
+});
+
+$('#logo').on('click', function(e){
+  e.preventDefault();
+  $('.stepTwo').hide();
+  $('.stepThree').hide();
+  $('.login').hide();
+  $('.swipe').hide();
+  $('.confirm').hide();
+  $('.contact').hide();
+  $('.entry').show();
+  $('.stepOne').show();
+});
+
+// hides all but the login view
+$('#loginNav').on('click', function(e){
+  e.preventDefault();
+  $('.swipe').hide();
+  $('.confirm').hide();
+  $('.contact').hide();
+  $('.stepOne').hide();
+  $('.stepTwo').hide();
+  $('.stepThree').hide();
+  $('.entry').hide();
+  $('.login').show();
+})
+
+// hides all but the email, password, confirm view
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
+<<<<<<< HEAD
+=======
+
+  let form = document.getElementById('signUpForm').elements;
+>>>>>>> eb2f47f5c61bb91e39a7f14862ad0a8d5e63e3b1
 
   if(prompts.indexOf(form.secret.value) === -1) {
     $('.stepOne').hide();
-    $('.stepTwo').show();
     $('.stepThree').hide();
+    $('.login').hide();
+    $('.swipe').hide();
+    $('.confirm').hide();
+    $('.contact').hide();
+    $('.stepTwo').show();
+    $('.entry').show();
   } else {
     //TODO: Show some kind of error: Secret is required.
   }
@@ -45,10 +99,19 @@ $('#stepOneButton').on('click', function(e){
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
+<<<<<<< HEAD
+=======
+
+  let form = document.getElementById('signUpForm').elements;
+>>>>>>> eb2f47f5c61bb91e39a7f14862ad0a8d5e63e3b1
 
   if(form.password.value === form.confirm.value) {
     $('.stepOne').hide();
     $('.stepTwo').hide();
+    $('.login').hide();
+    $('.swipe').hide();
+    $('.confirm').hide();
+    $('.contact').hide();
     $('.stepThree').show();
   } else {
     //TODO: Show some kind of error: passwords don't match.
@@ -84,5 +147,4 @@ $('#stepThreeButton').on('click', function(e){
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
     localStorage.setItem('token', res.token);
   });
-
 });
