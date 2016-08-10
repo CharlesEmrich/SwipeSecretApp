@@ -18,9 +18,9 @@ describe('API end to end test', ()=>{
 
   const testUser = {
     email: 'testUser@gmail.com',
-    password: 'abc'
+    password: 'abc',
+    text: 'This is my secret'
   };
-
 
   describe('user management and authentication', ()=>{
 
@@ -47,23 +47,23 @@ describe('API end to end test', ()=>{
     });
 
     //TODO rewrite this so it includes the secret id in the req.body
-    // it('signs up a new user and generates token', done=>{
-    //   request.post('/auth/signup')
-    //     .send(testUser)
-    //     .then(res => {
-    //       token = res.body.token;
-    //       assert.ok(res.body.token);
-    //       done();
-    //     });
-    //
-    // });
+    it('signs up a new user and generates token', done=>{
+      request.post('/auth/signup')
+        .send(testUser)
+        .then(res => {
+          token = res.body.token;
+          assert.ok(res.body.token);
+          done();
+        });
+
+    });
 
     it('no duplicate emails allowed on signup', done=>{
-      badRequest( '/auth/signup', testUser, 500, done );
+      badRequest( '/auth/signup', testUser, 400, done );
     });
 
     it('requires password on signin', done=>{
-      badRequest('/auth/signin', {email: 'testUser@gmail.com'}, 400, done);
+      badRequest('/auth/signin', {email: 'testUser@gmail.com'}, 500, done);
     });
 
     it('requires email on signin', done=>{
@@ -108,7 +108,7 @@ describe('API end to end test', ()=>{
       it('gets all secrets', done=>{
         request.get('/secret')
           .then(res => {
-            assert.deepEqual(res.body[0], testSecret);
+            assert.equal(res.body.length, 2);
             done();
           })
           .catch(done);
