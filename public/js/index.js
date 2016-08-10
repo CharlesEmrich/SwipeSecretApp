@@ -1,3 +1,24 @@
+const prompts = [
+    'I cannot ...',
+    'I wish ...',
+    'I blame ...',
+    'I\'m afraid that ...',
+    'I will only ...',
+    'No one knows that ...',
+    'I will never ...',
+    'I worry that ...',
+    'I shouldn\'t ...',
+    'I\'ve always suspected ...',
+    'You don\'t know I ...',
+    'You\'d never guess I',
+    'As a kid, I ...',
+    'Finally, I ...',
+    'I don\'t believe ...',
+    'I believe ...',
+    'I\'m scared that ...'
+  ];
+const form = document.getElementById('signUpForm').elements;
+
 // when app loads OR joinButton OR logo are pressed, hides all but the "enter your secret" view
 $(document).ready(()=>{
   $('.stepTwo').hide();
@@ -8,6 +29,12 @@ $(document).ready(()=>{
   $('.contact').hide();
   $('.entry').show();
   $('.stepOne').show();
+
+  //Populates secret form field with a prompt
+  $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
+  $('[name = "secret"]').one('keypress', function() {
+    this.value = this.value.replace('...','');
+  });
 });
 
 $('#joinNav').on('click', function(e){
@@ -50,10 +77,13 @@ $('#loginNav').on('click', function(e){
 // hides all but the email, password, confirm view
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
+<<<<<<< HEAD
+=======
 
   let form = document.getElementById('signUpForm').elements;
+>>>>>>> eb2f47f5c61bb91e39a7f14862ad0a8d5e63e3b1
 
-  if(form.secret.value) {
+  if(prompts.indexOf(form.secret.value) === -1) {
     $('.stepOne').hide();
     $('.stepThree').hide();
     $('.login').hide();
@@ -69,8 +99,11 @@ $('#stepOneButton').on('click', function(e){
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
+<<<<<<< HEAD
+=======
 
   let form = document.getElementById('signUpForm').elements;
+>>>>>>> eb2f47f5c61bb91e39a7f14862ad0a8d5e63e3b1
 
   if(form.password.value === form.confirm.value) {
     $('.stepOne').hide();

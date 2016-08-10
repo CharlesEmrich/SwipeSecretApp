@@ -54,7 +54,6 @@
           </nav>
         </header>
         <main>
-
           <!-- homepage / view when logged out -->
           <!-- TODO when user presses JOIN or LOGO, prompt to log out? OR hide those links when logged in? -->
 
@@ -62,14 +61,15 @@
             <h1>SwipeSecret</h1>
 
             <form class="signUpForm" id="signUpForm">
-              <!-- action="index.html" method="post" -->
               <div class="stepOne">
                 <h2>Enter your secret to start finding matches</h2>
+              <!-- TODO: At the moment, the secret blank holds about 65 characters before looking crowded. Could we get it up to the length of a tweet? -->
                 <input name="secret" placeholder="" autofocus>
                 <button id="stepOneButton">Next</button>
               </div>
 
               <div class="stepTwo">
+                <!-- TODO: This form doesn't actually have a place for a first and last name? Have we discarded that? I feel like we should at least have first names. -->
                 <h2>Setup your account with email and password</h2>
                 <input name="email" placeholder="Enter your email address">
                 <input name="password" type="password" placeholder="Enter your password">
