@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -7,55 +7,132 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/custom.css">
     <link rel="favicon" href="/css/master.css" media="screen" title="no title" charset="utf-8">
+    <!-- template for swipe view, shows secret and accept/reject buttons -->
+    <script id="secret-template" type="text/x-handlebars-template">
+      <h2>{{secret}}</h2>
+      <div class="votes">
+        <button id="approve">Approve</button>
+        <button id="reject">Reject</button>
+      </div>
+    </script>
+    <!-- template for confirm view, shows secret, gender, orientation, interestedIn, and location -->
+    <script id="confirm-template" type="text/x-handlebars-template">
+      <h1>{{secret}}</h1>
+      <div class="details">
+        <p>{{location}}</p>
+        <p>{{gender}}</p>
+        <p>{{orientation}}</p>
+        <p>{{interestedIn}}</p>
+        <h5>Confirm the match</h5>
+        <h5>Back out of the match</h5>
+      </div>
+    </script>
+    <!-- template for contact view, shows all user details -->
+    <script id="contact-template" type="text/x-handlebars-template">
+      <h1>{{secret}}</h1>
+      <div class="details">
+        <p>{{firstName}}</p>
+        <p>{{location}}</p>
+        <p>{{gender}}</p>
+        <p>{{orientation}}</p>
+        <p>{{interestedIn}}</p>
+        <a href="mailto:{{email}}" id="email">Email : {{email}}</a>
+        <a href="tel:{{phone}}" id="call">Call : {{phone}}</a>
+        <a href="sms:{{phone}}" id="text">Text : {{phone}}</a>
+        <h5>Block this user and revoke access to your contact information</h5>
+      </div>
+    </script>
   </head>
   <body>
     <div class="fullbleed" id="primary">
       <div class="overlay">
         <header>
-          <a href="/home" id="logo">SwipeSecret</a>
+          <a href="#" id="logo">SwipeSecret</a>
           <nav>
-            <a href="/loginAccount">Login</a>
-            <a href="/createAccount">Join</a>
+            <a href="#" id="loginNav">Login</a>
+            <a href="#" id="joinNav">Join</a>
           </nav>
         </header>
         <main>
-          <h1>SwipeSecret</h1>
 
-          <form class="signUp" id="signUpForm">
-            <!-- action="index.html" method="post" -->
-            <div class="stepOne">
-              <h2>Enter your secret to start finding matches</h2>
-              <input name="secret" placeholder="" autofocus>
-              <button id="stepOneButton" type="XYZ">Next</button>
-            </div>
+          <!-- homepage / view when logged out -->
+          <!-- TODO when user presses JOIN or LOGO, prompt to log out? OR hide those links when logged in? -->
 
-            <div class="stepTwo">
-              <h2>Setup your account with email and password</h2>
-              <input name="email" placeholder="Enter your email address">
-              <input name="password" type="password" placeholder="Enter your password">
-              <input name="confirm" type="password" placeholder="Confirm your password">
-              <button id="stepTwoButton"type="XYZ">Next</button>
-            </div>
+          <div class="entry">
+            <h1>SwipeSecret</h1>
 
-            <div class="stepThree">
-              <h2>Populate your account with match criteria</h2>
-              <input name="phoneNum" placeholder="Enter your phone number (ie. 555-123-4567)">
-              <input name="location" placeholder="Enter your current city and state (ie. Portland, OR)">
-              <input name="gender" placeholder="Enter your gender (ie. Female)">
-              <input name="orientation" placeholder="Enter your orientation (ie. Gay)">
-              <input name="interestedIn" placeholder="Enter gender(s) you are interested in (ie. Female)">
-              <button id="stepThreeButton">Submit</button>
-            </div>
-          </form>
+            <form class="signUpForm" id="signUpForm">
+              <!-- action="index.html" method="post" -->
+              <div class="stepOne">
+                <h2>Enter your secret to start finding matches</h2>
+                <input name="secret" placeholder="" autofocus>
+                <button id="stepOneButton">Next</button>
+              </div>
 
-          <!-- <div class="scroll">
+              <div class="stepTwo">
+                <h2>Setup your account with email and password</h2>
+                <input name="email" placeholder="Enter your email address">
+                <input name="password" type="password" placeholder="Enter your password">
+                <input name="confirm" type="password" placeholder="Confirm your password">
+                <button id="stepTwoButton">Next</button>
+              </div>
+
+              <div class="stepThree">
+                <h2>Populate your account with match criteria</h2>
+                <input name="phoneNum" placeholder="Enter your phone number (ie. 555-123-4567)">
+                <input name="location" placeholder="Enter your current city and state (ie. Portland, OR)">
+                <input name="gender" placeholder="Enter your gender (ie. Female)">
+                <input name="orientation" placeholder="Enter your orientation (ie. Gay)">
+                <input name="interestedIn" placeholder="Enter gender(s) you are interested in (ie. Female)">
+                <button id="stepThreeButton">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- login page view -->
+
+          <div class="login">
+            <h1>Login</h1>
+            <form class="loginForm" id="loginForm">
+              <!-- action="index.html" method="post" -->
+                <h2>Enter your email and password</h2>
+                <input name="email" placeholder="Enter your email address">
+                <input name="password" type="password" placeholder="Enter your password">
+                <button id="loginButton">Login</button>
+            </form>
+          </div>
+
+          <!-- swipe view -->
+
+          <div class="swipe">
+            <h1>Get Swiping</h1>
+            <!-- secret template will insert a secret text here -->
+          </div>
+
+          <!-- confirm page -->
+
+          <div class="confirm">
+            <h1>Confirm Match?</h1>
+
+          </div>
+
+          <!-- show contact info -->
+
+          <div class="contact">
+            <h1>Take a Chance</h1>
+
+          </div>
+
+          <!-- footer -->
+
+          <div class="scroll">
             <h6>scroll down for more information</h6>
-          </div> -->
+          </div>
         </main>
       </div>
     </div>
 
-    <!-- <div class="fullbleed custom" id="secondary">
+    <div class="fullbleed custom" id="secondary">
       <div class="overlay custom">
         <main class="custom">
           <h3>SwipeSecret is the illegitimate love child of PostSecret and Tinder. </h3>
@@ -63,7 +140,7 @@
           <h6>-The Swipe Secret Crew</h6>
         </main>
       </div>
-    </div> -->
+    </div>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/index.js"></script>
   </body>
