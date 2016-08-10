@@ -15,6 +15,6 @@ server.listen(port, ()=>{
 //TODO: I'm reasonably sure that the password hashing pattern here is wrong.
 fakeData(35).forEach((user) => {
   let fakeUser = new User(user);
-  fakeUser.generateHash(fakeUser.password);
+  fakeUser.generateHash(fakeUser.password); //I'm still not sure why this works?
   fakeUser.save();
 });
