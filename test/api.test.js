@@ -19,7 +19,7 @@ describe('API end to end test', ()=>{
   const testUser = {
     email: 'testUser@gmail.com',
     password: 'abc',
-    text: 'This is my secret'
+    secret: 'This is my secret'
   };
 
   describe('user management and authentication', ()=>{
