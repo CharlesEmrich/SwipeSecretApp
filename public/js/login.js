@@ -10,14 +10,15 @@ $('#loginButton').on('click', function(e){
     password: form.password.value
   };
   console.log(data);
-  // $.ajax({
-  //   method: 'POST',
-  //   url: '/auth/signup',
-  //   contentType: 'application/json',
-  //   data: JSON.stringify(loginData)
-  // }).done(function(res){
-  //   //TODO set to appropriate swipe view
-  //   localStorage.setItem('userId', JSON.stringify(res.payload.id));
-  //   localStorage.setItem('token', res.token);
-  // });
+  $.ajax({
+    method: 'POST',
+    url: '/auth/signin',
+    contentType: 'application/json',
+    data: JSON.stringify(data)
+  }).done(function(res){
+    console.log(res);
+    //TODO set to appropriate swipe view
+    localStorage.setItem('userId', JSON.stringify(res.payload.id));
+    localStorage.setItem('token', res.token);
+  });
 });
