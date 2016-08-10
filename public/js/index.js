@@ -5,16 +5,28 @@ $(document).ready(()=>{
 
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
-  $('.stepOne').hide();
-  $('.stepTwo').show();
-  $('.stepThree').hide();
+  let form = document.getElementById('signUpForm').elements;
+
+  if(form.secret.value) {
+    $('.stepOne').hide();
+    $('.stepTwo').show();
+    $('.stepThree').hide();
+  } else {
+    //TODO: Show some kind of error.
+  }
 });
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
-  $('.stepOne').hide();
-  $('.stepTwo').hide();
-  $('.stepThree').show();
+  let form = document.getElementById('signUpForm').elements;
+
+  if(form.password.value === form.confirm.value) {
+    $('.stepOne').hide();
+    $('.stepTwo').hide();
+    $('.stepThree').show();
+  } else {
+    //TODO: Show some kind of error.
+  }
 });
 
 $('#stepThreeButton').on('click', function(e){
