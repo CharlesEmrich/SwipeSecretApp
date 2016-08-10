@@ -77,11 +77,8 @@ $('#loginNav').on('click', function(e){
 // hides all but the email, password, confirm view
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
-<<<<<<< HEAD
-=======
 
   let form = document.getElementById('signUpForm').elements;
->>>>>>> eb2f47f5c61bb91e39a7f14862ad0a8d5e63e3b1
 
   if(prompts.indexOf(form.secret.value) === -1) {
     $('.stepOne').hide();
@@ -99,11 +96,8 @@ $('#stepOneButton').on('click', function(e){
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
-<<<<<<< HEAD
-=======
 
   let form = document.getElementById('signUpForm').elements;
->>>>>>> eb2f47f5c61bb91e39a7f14862ad0a8d5e63e3b1
 
   if(form.password.value === form.confirm.value) {
     $('.stepOne').hide();
