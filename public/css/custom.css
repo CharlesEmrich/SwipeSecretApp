@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "source sans pro", helvetica, arial, sans-serif;
+  text-decoration: none;
+  color: #ddd;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300 !important;
+  padding: 0;
+  margin: 0 0 10px 0;
+  line-height: 1em;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 200 !important;
+  font-size: 7.6em;
+  margin-bottom: 20px;
+}
+
+h2, h6 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 1.55em;
+  margin-bottom: 50px;
+}
+
+h6 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+a, a:link, a:visited {
+  color: #ddd;
+}
+
+a:hover, a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+p {
+  text-align: justify;
+  line-height: 1.5em;
+  /*font-size: 1em;*/
+}
+
+body {
+  margin: 0px;
+  background-color: black;
+}
+
+.fullbleed {
+  height: 100vh;
+  background-size: cover;
+}
+
+#primary {
+  background-image: url("../images/photo-1468272240963-b147baaa2076.jpeg");
+}
+
+.overlay {
+  background-color: rgba(0,0,0,0.6);
+  height: 100vh;
+}
+
+.custom {
+  height: 100%;
+}
+
+.custom main {
+  margin: 10vh auto;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 0px;
+  width: 60%;
+}
+
+header {
+  background-color: rgba(0,0,0,0.6);
+  width: 100%;
+  padding: 20px;
+}
+
+nav {
+  width: 45%;
+  display: inline-block;
+  text-align: right;
+}
+
+#logo {
+  font-weight: 300 !important;
+  font-size: 2em;
+  text-align: left;
+  width: 50%;
+  display: inline-block;
+}
+
+nav a {
+  font-size: 2em;
+  font-weight: 200;
+  margin-left: 15px;
+}
+
+main {
+  height: calc(100vh - 15vh);
+  width: 60%;
+  margin: 15vh auto 0 auto
+}
+
+form {
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 2px solid #ddd;
+  margin: 0 auto 10px auto;
+  display: block;
+  padding: 4px;
+  outline: none;
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+}
+
+button {
+  /*width: 200px;*/
+  border: 2px solid #ddd;
+  background-color: transparent;
+  color: #ddd;
+  padding: 10px 100px;
+  margin-left: calc(50% - 125px);
+  margin-top: 20px;
+  font-size: 2em;
+  font-weight: 200;
+  outline: none;
+}
+
+button:hover {
+  border: 2px solid #fff;
+}
