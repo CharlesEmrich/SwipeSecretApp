@@ -21,40 +21,41 @@
         <main>
           <h1>SwipeSecret</h1>
 
-          <form class="signUp" action="index.html" method="post">
+          <form class="signUp" id="signUpForm">
+            <!-- action="index.html" method="post" -->
             <div class="stepOne">
               <h2>Enter your secret to start finding matches</h2>
               <input name="secret" placeholder="" autofocus>
-              <button type="XYZ">Next</button>
+              <button id="stepOneButton" type="XYZ">Next</button>
             </div>
 
-            <!-- <div class="stepTwo">
+            <div class="stepTwo">
               <h2>Setup your account with email and password</h2>
               <input name="email" placeholder="Enter your email address">
               <input name="password" type="password" placeholder="Enter your password">
               <input name="confirm" type="password" placeholder="Confirm your password">
-              <button type="XYZ">Next</button>
-            </div> -->
+              <button id="stepTwoButton"type="XYZ">Next</button>
+            </div>
 
-            <!-- <div class="stepThree">
+            <div class="stepThree">
               <h2>Populate your account with match criteria</h2>
               <input name="phoneNum" placeholder="Enter your phone number (ie. 555-123-4567)">
               <input name="location" placeholder="Enter your current city and state (ie. Portland, OR)">
               <input name="gender" placeholder="Enter your gender (ie. Female)">
               <input name="orientation" placeholder="Enter your orientation (ie. Gay)">
               <input name="interestedIn" placeholder="Enter gender(s) you are interested in (ie. Female)">
-              <button type="submit">Next</button>
-            </div> -->
+              <button id="stepThreeButton">Submit</button>
+            </div>
           </form>
 
-          <div class="scroll">
+          <!-- <div class="scroll">
             <h6>scroll down for more information</h6>
-          </div>
+          </div> -->
         </main>
       </div>
     </div>
 
-    <div class="fullbleed custom" id="secondary">
+    <!-- <div class="fullbleed custom" id="secondary">
       <div class="overlay custom">
         <main class="custom">
           <h3>SwipeSecret is the illegitimate love child of PostSecret and Tinder. </h3>
@@ -62,6 +63,8 @@
           <h6>-The Swipe Secret Crew</h6>
         </main>
       </div>
-    </div>
+    </div> -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
   </body>
 </html>
