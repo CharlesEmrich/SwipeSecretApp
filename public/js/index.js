@@ -17,6 +17,7 @@ const prompts = [
     'I believe ',
     'I\'m scared that '
   ];
+const form = document.getElementById('signUpForm').elements;
 
 $(document).ready(()=>{
   $('.stepTwo').hide();
@@ -25,12 +26,13 @@ $(document).ready(()=>{
   //Populates secret form field with a prompt
   //TODO: Make it so these can end with an ellipse that disappears when someone clicks into the form slot.
   $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
-
+  $('[name = "secret"]').change(function() {
+    console.log(this);
+  })
 });
 
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
-  let form = document.getElementById('signUpForm').elements;
 
   if(prompts.indexOf(form.secret.value) === -1) {
     $('.stepOne').hide();
@@ -43,7 +45,6 @@ $('#stepOneButton').on('click', function(e){
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
-  let form = document.getElementById('signUpForm').elements;
 
   if(form.password.value === form.confirm.value) {
     $('.stepOne').hide();
