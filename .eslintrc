@@ -25,7 +25,8 @@
     "beforeEach": false,
     "afterEach": false,
     "before": false,
-    "after": false
+    "after": false,
+    "$": false
   },
   "ecmaFeatures": {
     "modules": true,
