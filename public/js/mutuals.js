@@ -43,12 +43,15 @@ $('#moveleft').on('click', function() {
 
 $('#acceptMatch').on('click', function() {
   //TODO: ajax confirmation to somewhere via POST (creating interaction or nah?)
+  //Suspect that this is creating an Interaction with confirm: true between the two of us and testing whether a reciprocal exists.
 
   //TODO: If you have both confirmed, show additional information
 });
 
 $('#rejectMatch').on('click', function() {
   //TODO: ajax rejection to somewhere via POST (creating interaction or nah?)
+  //Suspect that this is creating an Interaction with confirm: false.
+  //TODO: userIds with a confirm: false Interaction should be excluded from popMutuals.
 
   //Remove rejected match from mutuals.
   mutuals.splice(currentIndex, 1);
