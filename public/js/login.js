@@ -9,7 +9,6 @@ $('#loginButton').on('click', function(e){
     email: form.email.value,
     password: form.password.value
   };
-  console.log(data);
   $.ajax({
     method: 'POST',
     url: '/auth/signin',
@@ -19,6 +18,7 @@ $('#loginButton').on('click', function(e){
     alert('Uh Oh, there was an issue with either your email or password, please make the necessary changes and try again.');
     return false;
   }).done(function(res){
+    console.log('in the done');
     function resetView() {
       $('.stepOne').hide();
       $('.stepTwo').hide();
@@ -31,7 +31,10 @@ $('#loginButton').on('click', function(e){
     }
     resetView();
     //TODO set to appropriate swipe view
-    localStorage.setItem('userId', JSON.stringify(res.payload.id));
+    localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
+
+    initSwipeView();
+
   });
 });

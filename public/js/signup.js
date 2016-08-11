@@ -69,7 +69,7 @@ $('#stepThreeButton').on('click', function(e){
   .done(function(res){
     resetView('swipe');
     //NOTE: vote.js has as much of this as I've figured out.
-    localStorage.setItem('userId', JSON.stringify(res.payload.id));
+    localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
   });
 });

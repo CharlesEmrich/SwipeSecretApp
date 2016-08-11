@@ -45,7 +45,7 @@ $(document).ready(function(){
   //Populates secret form field with a prompt
   $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
   $('[name = "secret"]').one('keypress', function() {
-    this.placeholder = this.placeholder.replace('...','');
+    this.value = this.value.replace('...','');
   });
 });
 
