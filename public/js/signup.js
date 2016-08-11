@@ -1,4 +1,3 @@
-const form = document.getElementById('signUpForm').elements;
 
 // hides all but the email, password, confirm view
 $('#stepOneButton').on('click', function(e){

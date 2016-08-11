@@ -1,4 +1,3 @@
-const popSecret = require('../../lib/popSecret')();
 
 $('#approve').on('click', function() {
   $.ajax({
@@ -22,7 +21,7 @@ $('#approve').on('click', function() {
     console.log('in the done');
     console.log(res);
     //TODO call popSecret
-    let target = popSecret(localStorage.userId);
+    let target = res.body;
     //TODO set to appropriate swipe view
 
     //TODO stash targetId, targetSecretId into localStorage
@@ -53,7 +52,7 @@ $('#reject').on('click', function() {
     console.log('in the done');
     console.log(res);
     //TODO call popSecret
-    let target = popSecret(localStorage.userId);
+    let target = res.body;
     //TODO set to appropriate swipe view
 
     //TODO stash targetId, targetSecretId into localStorage
@@ -84,7 +83,7 @@ $('#report').on('click', function() {
     console.log('in the done');
     console.log(res);
     //TODO call popSecret
-    let target = popSecret(localStorage.userId);
+    let target = res.body;
     //TODO set to appropriate swipe view
 
     //TODO stash targetId, targetSecretId into localStorage
