@@ -23,7 +23,6 @@ $('#stepTwoButton').on('click', function(e){
 
   // eslint-disable-next-line
   if((form.password.value === form.confirm.value) && (/\S+@\S+\.\S+/.test(form.email.value))) {
-
     $('.stepOne').hide();
     $('.stepTwo').hide();
     $('.login').hide();
@@ -39,8 +38,8 @@ $('#stepTwoButton').on('click', function(e){
 
 $('#stepThreeButton').on('click', function(e){
   e.preventDefault();
-
   let data = {
+    /* eslint-disable */
     firstName: form.firstName.value,
     password: form.password.value,
     secret: form.secret.value,
@@ -50,16 +49,20 @@ $('#stepThreeButton').on('click', function(e){
     gender: form.gender.value,
     orientation: form.orientation.value,
     interestedIn: form.interestedIn.value
+    /* eslint-enable */
   };
-
   $.ajax({
     method: 'POST',
     url: '/auth/signup',
     contentType: 'application/json',
     data: JSON.stringify(data)
-  }).done(function(res){
-    initSwipeView();
-    localStorage.setItem('userId', JSON.stringify(res.payload.id));
+  }).fail(function(res){
+    alert('There was an error signing up');
+    return false;
+  })
+  .done(function(res){
+    resetView('swipe');
+    localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
   });
 });
