@@ -9,7 +9,6 @@ $('#loginButton').on('click', function(e){
     email: form.email.value,
     password: form.password.value
   };
-  console.log(data);
   $.ajax({
     method: 'POST',
     url: '/auth/signin',
