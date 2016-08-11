@@ -4,6 +4,7 @@ const form = document.getElementById('signUpForm').elements;
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
 
+  // eslint-disable-next-line
   if(prompts.indexOf(form.secret.value) === -1) {
     $('.stepOne').hide();
     $('.stepThree').hide();
@@ -14,14 +15,17 @@ $('#stepOneButton').on('click', function(e){
     $('.stepTwo').show();
     $('.entry').show();
   } else {
-    //TODO: Show some kind of error: Secret is required.
+    alert('Ruh Roh Shaggy, please remember to insert your own secret.');
+    return false;
   }
 });
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
 
-  if(form.password.value === form.confirm.value) {
+  // eslint-disable-next-line
+  if((form.password.value === form.confirm.value )&& (/\s+@\s+\.\s+/.test(form.email.value))) {
+
     $('.stepOne').hide();
     $('.stepTwo').hide();
     $('.login').hide();
@@ -30,7 +34,8 @@ $('#stepTwoButton').on('click', function(e){
     $('.contact').hide();
     $('.stepThree').show();
   } else {
-    //TODO: Show some kind of error: passwords don't match.
+    alert('Oopsie daisy, either your email format isn\'t valid or your passwords don\t match.');
+    return false;
   }
 });
 
@@ -55,7 +60,7 @@ $('#stepThreeButton').on('click', function(e){
     contentType: 'application/json',
     data: JSON.stringify(data)
   }).done(function(res){
-    //TODO set to appropriate swipe view
+    initSwipeView();
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
     localStorage.setItem('token', res.token);
   });
