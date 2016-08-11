@@ -11,15 +11,6 @@ function initSwipeView() {
     let target = res.body;
     localStorage.setItem('targetId', target._id);
     localStorage.setItem('targetSecretId', target.secret._id);
-    //Hide and show appropriat elements.
-    $('.stepOne').hide();
-    $('.stepTwo').hide();
-    $('.stepThree').hide();
-    $('.login').hide();
-    $('.confirm').hide();
-    $('.contact').hide();
-    $('.entry').hide();
-    $('.swipe').show();
   });
 }
 
