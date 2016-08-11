@@ -22,7 +22,7 @@ $('#stepOneButton').on('click', function(e){
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
   // eslint-disable-next-line
-  if((form.password.value === form.confirm.value )&& (/\s+@\s+\.\s+/.test(form.email.value))) {
+  if((form.password.value === form.confirm.value) && (/\S+@\S+\.\S+/.test(form.email.value))) {
     $('.stepOne').hide();
     $('.stepTwo').hide();
     $('.login').hide();
