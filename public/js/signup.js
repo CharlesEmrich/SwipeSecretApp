@@ -59,6 +59,7 @@ $('#stepThreeButton').on('click', function(e){
     data: JSON.stringify(data)
   }).done(function(res){
     //TODO set to appropriate swipe view
+    //NOTE: vote.js has as much of this as I've figured out.
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
     localStorage.setItem('token', res.token);
   });
