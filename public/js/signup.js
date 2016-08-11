@@ -21,11 +21,8 @@ $('#stepOneButton').on('click', function(e){
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
-
-
   // eslint-disable-next-line
   if((form.password.value === form.confirm.value) && (/\S+@\S+\.\S+/.test(form.email.value))) {
-
     $('.stepOne').hide();
     $('.stepTwo').hide();
     $('.login').hide();
@@ -41,12 +38,12 @@ $('#stepTwoButton').on('click', function(e){
 
 $('#stepThreeButton').on('click', function(e){
   e.preventDefault();
-
   let data = {
     //TODO: Is there seriously no better way to do this?
     //TODO: Current version of form has no place for names.
     firstName: '',
     lastName: '',
+    /* eslint-disable */
     password: form.password.value,
     secret: form.secret.value,
     location: form.location.value,
@@ -55,8 +52,8 @@ $('#stepThreeButton').on('click', function(e){
     gender: form.gender.value,
     orientation: form.orientation.value,
     interestedIn: form.interestedIn.value
+    /* eslint-enable */
   };
-
   $.ajax({
     method: 'POST',
     url: '/auth/signup',
