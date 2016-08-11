@@ -7,7 +7,9 @@ $(function() {
       data: JSON.stringify(
         {
           status: 'approved'
-          // originatorId: ''
+          // originatorId: localStorage.userId,
+          // targetId: '', //where are we storing this? 
+          // targetSecretId: '' //where are we storing this?
         }
       )
     })

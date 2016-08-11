@@ -38,6 +38,7 @@ h6 {
 
 a, a:link, a:visited {
   color: #ddd;
+  text-decoration: none;
 }
 
 a:hover, a:active {
@@ -63,6 +64,7 @@ body {
 
 #primary {
   background-image: url("../images/photo-1468272240963-b147baaa2076.jpeg");
+  background-position: center;
 }
 
 .overlay {
@@ -72,10 +74,6 @@ body {
 
 .custom {
   height: 100%;
-}
-
-.custom main {
-  margin: 10vh auto;
 }
 
 .scroll {
@@ -116,6 +114,11 @@ main {
   margin: 15vh auto 0 auto
 }
 
+.custom main {
+  margin: 10vh auto;
+  height: 100%;
+}
+
 form {
   margin: 0 auto;
 }
@@ -135,7 +138,6 @@ input {
 }
 
 button {
-  /*width: 200px;*/
   border: 2px solid #ddd;
   background-color: transparent;
   color: #ddd;
@@ -149,4 +151,8 @@ button {
 
 button:hover {
   border: 2px solid #fff;
+}
+
+.stepTwo, .stepThree, .login, .swipe, .confirm, .contact {
+  display: none;
 }
