@@ -7,6 +7,10 @@ function initSwipeView() {
   .done(function(res) {
     //TODO: Use res.body to populate swipe view.
 
+    //TODO: Stash target values in localStorage
+    let target = res.body;
+    localStorage.setItem('targetId', target._id);
+    localStorage.setItem('targetSecretId', target.secret._id);
     //Hide and show appropriat elements.
     $('.stepOne').hide();
     $('.stepTwo').hide();
@@ -40,7 +44,6 @@ $('#approve').on('click', function() {
   }).done(function(res){
     console.log('in the done');
     console.log(res);
-    //TODO call popSecret
     let target = res.body;
     //TODO set to appropriate swipe view
 
