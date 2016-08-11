@@ -15,7 +15,12 @@ $('#loginButton').on('click', function(e){
     url: '/auth/signin',
     contentType: 'application/json',
     data: JSON.stringify(data)
+  }).fail(function(res){
+    console.log('in the fail');
+    //TODO res contains the error message, so send this to the client
+    //and don't allow the swipe view to change
   }).done(function(res){
+    console.log('in the done');
     console.log(res);
     //TODO set to appropriate swipe view
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
