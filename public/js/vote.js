@@ -19,7 +19,6 @@ function initSwipeView() {
   });
 }
 
-
 $('#approve').on('click', function() {
   $.ajax({
     method: 'POST',
@@ -35,8 +34,8 @@ $('#approve').on('click', function() {
     )
   })
   .fail(function(res){
-    console.log('in the fail');
-    //TODO res contains the error message, so send this to the client
+    alert('Approve failed. Whoops.');
+    return false;
     //and don't allow the swipe view to change
   }).done(function(res){
     console.log('in the done');
@@ -45,7 +44,6 @@ $('#approve').on('click', function() {
     let target = res.body;
     //TODO set to appropriate swipe view
 
-    //TODO stash targetId, targetSecretId into localStorage
     localStorage.setItem('targetId', target._id);
     localStorage.setItem('targetSecretId', target.secret._id);
   });
@@ -66,8 +64,8 @@ $('#reject').on('click', function() {
     )
   })
   .fail(function(res){
-    console.log('in the fail');
-    //TODO res contains the error message, so send this to the client
+    alert('Reject failed. Whoops.');
+    return false;
     //and don't allow the swipe view to change
   }).done(function(res){
     console.log('in the done');
@@ -97,9 +95,8 @@ $('#report').on('click', function() {
     )
   })
   .fail(function(res){
-    console.log('in the fail');
-    //TODO res contains the error message, so send this to the client
-    //and don't allow the swipe view to change
+    alert('Report failed. Whoops.');
+    return false;
   }).done(function(res){
     console.log('in the done');
     console.log(res);
