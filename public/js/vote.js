@@ -6,6 +6,16 @@ function initSwipeView() {
   })
   .done(function(res) {
     //TODO: Use res.body to populate swipe view.
+
+    //Hide and show appropriat elements.
+    $('.stepOne').hide();
+    $('.stepTwo').hide();
+    $('.stepThree').hide();
+    $('.login').hide();
+    $('.confirm').hide();
+    $('.contact').hide();
+    $('.entry').hide();
+    $('.swipe').show();
   });
 }
 

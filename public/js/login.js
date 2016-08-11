@@ -19,17 +19,8 @@ $('#loginButton').on('click', function(e){
     alert('Uh Oh, there was an issue with either your email or password, please make the necessary changes and try again.');
     return false;
   }).done(function(res){
-    function resetView() {
-      $('.stepOne').hide();
-      $('.stepTwo').hide();
-      $('.stepThree').hide();
-      $('.login').hide();
-      $('.confirm').hide();
-      $('.contact').hide();
-      $('.entry').hide();
-      $('.swipe').show();
-    }
-    resetView();
+    initSwipeView();
+
     //TODO set to appropriate swipe view
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
     localStorage.setItem('token', res.token);
