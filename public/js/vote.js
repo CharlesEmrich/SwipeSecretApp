@@ -1,3 +1,14 @@
+//Run this when the view is initially loaded:
+function initSwipeView() {
+  $.ajax({
+    method: 'GET',
+    url: `/interaction/popSecret/${localStorage.userId}`
+  })
+  .done(function(res) {
+    //TODO: Use res.body to populate swipe view.
+  });
+}
+
 
 $('#approve').on('click', function() {
   $.ajax({

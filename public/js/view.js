@@ -17,6 +17,7 @@ const prompts = [
     'I believe ...',
     'I\'m scared that ...'
   ];
+
 const form = document.getElementById('signUpForm').elements;
 
 // when app loads OR joinButton OR logo are pressed, hides all but the "enter your secret" view
@@ -33,7 +34,7 @@ $(document).ready(()=>{
   //Populates secret form field with a prompt
   $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
   $('[name = "secret"]').one('keypress', function() {
-    this.placeholder = this.placeholder.replace('...','');
+    this.value = this.value.replace('...','');
   });
 });
 

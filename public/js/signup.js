@@ -1,3 +1,4 @@
+const form = document.getElementById('signUpForm').elements;
 
 // hides all but the email, password, confirm view
 $('#stepOneButton').on('click', function(e){
@@ -37,10 +38,7 @@ $('#stepThreeButton').on('click', function(e){
   e.preventDefault();
 
   let data = {
-    //TODO: Is there seriously no better way to do this?
-    //TODO: Current version of form has no place for names.
-    firstName: '',
-    lastName: '',
+    firstName: form.firstName.value,
     password: form.password.value,
     secret: form.secret.value,
     location: form.location.value,
@@ -58,7 +56,6 @@ $('#stepThreeButton').on('click', function(e){
     data: JSON.stringify(data)
   }).done(function(res){
     //TODO set to appropriate swipe view
-    //NOTE: vote.js has as much of this as I've figured out.
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
     localStorage.setItem('token', res.token);
   });
