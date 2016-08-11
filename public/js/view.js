@@ -19,8 +19,19 @@ const prompts = [
   ];
 const form = document.getElementById('signUpForm').elements;
 
+function resetView (divClass) {
+  $('.stepOne').hide();
+  $('.stepTwo').hide();
+  $('.stepThree').hide();
+  $('.login').hide();
+  $('.swipe').hide();
+  $('.confirm').hide();
+  $('.contact').hide();
+  $('.' + divClass).show();
+}
+
 // when app loads OR joinButton OR logo are pressed, hides all but the "enter your secret" view
-$(document).ready(()=>{
+$(document).ready(function(){
   $('.stepTwo').hide();
   $('.stepThree').hide();
   $('.login').hide();
@@ -29,6 +40,7 @@ $(document).ready(()=>{
   $('.contact').hide();
   $('.entry').show();
   $('.stepOne').show();
+
 
   //Populates secret form field with a prompt
   $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);
