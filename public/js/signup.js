@@ -59,22 +59,14 @@ $('#stepThreeButton').on('click', function(e){
     url: '/auth/signup',
     contentType: 'application/json',
     data: JSON.stringify(data)
-  }).done(function(res){
-    // eslint-disable-next-line
-    compile('secret-template');
-    function resetView() {
-      $('.stepOne').hide();
-      $('.stepTwo').hide();
-      $('.stepThree').hide();
-      $('.login').hide();
-      $('.confirm').hide();
-      $('.contact').hide();
-      $('.entry').hide();
-      $('.swipe').show();
-    }
-    resetView();
+  }).fail(function(res){
+    alert('There was an error signing up');
+    return false;
+  })
+  .done(function(res){
+    resetView('swipe');
     //NOTE: vote.js has as much of this as I've figured out.
-    localStorage.setItem('userId', JSON.stringify(res.payload.id));
+    localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
   });
 });

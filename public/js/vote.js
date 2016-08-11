@@ -1,3 +1,26 @@
+function compile (templateId, content) {
+  var source = $('#' + templateId).html();
+  console.log(source);
+  // eslint-disable-next-line
+  var template = Handlebars.compile(source);
+  return template(content);
+}
+
+function initSwipeView() {
+  $.ajax({
+    method: 'GET',
+    url: '/secret/popSecret/' + localStorage.userId
+  })
+  .done(function(res) {
+    //TODO: Use res.body to populate swipe view.
+    //TODO: Stash target values in localStorage
+    const secretDiv = compile('secret-template', {secret: res.secret.text});
+    $('.swipe').append(secretDiv);
+
+    localStorage.setItem('targetId', res._id);
+    localStorage.setItem('targetSecretId', res.secret._id);
+  });
+}
 
 $('#approve').on('click', function() {
   $.ajax({
