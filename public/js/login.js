@@ -15,13 +15,21 @@ $('#loginButton').on('click', function(e){
     url: '/auth/signin',
     contentType: 'application/json',
     data: JSON.stringify(data)
-  }).fail(function(res){
-    console.log('in the fail');
-    //TODO res contains the error message, so send this to the client
-    //and don't allow the swipe view to change
+  }).fail(function(){
+    alert('Uh Oh, there was an issue with either your email or password, please make the necessary changes and try again.');
+    return false;
   }).done(function(res){
-    console.log('in the done');
-    console.log(res);
+    function resetView() {
+      $('.stepOne').hide();
+      $('.stepTwo').hide();
+      $('.stepThree').hide();
+      $('.login').hide();
+      $('.confirm').hide();
+      $('.contact').hide();
+      $('.entry').hide();
+      $('.swipe').show();
+    }
+    resetView();
     //TODO set to appropriate swipe view
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
     localStorage.setItem('token', res.token);
