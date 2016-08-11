@@ -3,6 +3,7 @@
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
 
+  // eslint-disable-next-line
   if(prompts.indexOf(form.secret.value) === -1) {
     $('.stepOne').hide();
     $('.stepThree').hide();
@@ -13,13 +14,15 @@ $('#stepOneButton').on('click', function(e){
     $('.stepTwo').show();
     $('.entry').show();
   } else {
-    //TODO: Show some kind of error: Secret is required.
+    alert('Ruh Roh Shaggy, please remember to insert your own secret.');
+    return false;
   }
 });
 
 $('#stepTwoButton').on('click', function(e){
   e.preventDefault();
 
+  // eslint-disable-next-line
   if(form.password.value === form.confirm.value) {
     $('.stepOne').hide();
     $('.stepTwo').hide();
@@ -29,7 +32,8 @@ $('#stepTwoButton').on('click', function(e){
     $('.contact').hide();
     $('.stepThree').show();
   } else {
-    //TODO: Show some kind of error: passwords don't match.
+    alert('Oopsie daisy, either your email format isn\'t valid or your passwords don\t match.');
+    return false;
   }
 });
 
@@ -57,7 +61,20 @@ $('#stepThreeButton').on('click', function(e){
     contentType: 'application/json',
     data: JSON.stringify(data)
   }).done(function(res){
-    //TODO set to appropriate swipe view
+    function resetView() {
+      $('.stepOne').hide();
+      $('.stepTwo').hide();
+      $('.stepThree').hide();
+      $('.login').hide();
+      $('.confirm').hide();
+      $('.contact').hide();
+      $('.entry').hide();
+      $('.swipe').show();
+    }
+    resetView();
+
+
+
     //NOTE: vote.js has as much of this as I've figured out.
     localStorage.setItem('userId', JSON.stringify(res.payload.id));
     localStorage.setItem('token', res.token);
