@@ -1,7 +1,7 @@
 // NOTE: OK, so we're using a modified swipe view. Can you navigate this view without voting? It seems like you should be able to?
 
 let mutuals = [];
-let currentIndex = 0
+let currentIndex = 0;
 
 //On view-load:
 $.ajax({
