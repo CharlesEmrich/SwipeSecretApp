@@ -130,7 +130,7 @@ $('#stepThreeButton').on('click', function(e){
     orientation: form.orientation.value,
     interestedIn: form.interestedIn.value
   };
-  //console.log(data);
+
   $.ajax({
     method: 'POST',
     url: '/auth/signup',
