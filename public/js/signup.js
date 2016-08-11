@@ -59,11 +59,12 @@ $('#stepThreeButton').on('click', function(e){
     url: '/auth/signup',
     contentType: 'application/json',
     data: JSON.stringify(data)
-  }).fail(function(res){
+  }).fail(function(){
     alert('There was an error signing up');
     return false;
   })
   .done(function(res){
+    //eslint-disable-next-line
     resetView('swipe');
     //NOTE: vote.js has as much of this as I've figured out.
     localStorage.setItem('userId', res.payload.id);
