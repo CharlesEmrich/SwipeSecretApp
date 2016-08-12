@@ -33,15 +33,20 @@ function resetView (divClass) {
 
 // when app loads OR joinButton OR logo are pressed, hides all but the "enter your secret" view
 $(document).ready(function(){
-  $('.stepTwo').hide();
-  $('.stepThree').hide();
-  $('.login').hide();
-  $('.swipe').hide();
-  $('.confirm').hide();
-  $('.contact').hide();
-  $('.entry').show();
-  $('.stepOne').show();
 
+  if(localStorage.token && localStorage.userId){
+    initSwipeView();
+    resetView('swipe');
+  } else {
+    $('.stepTwo').hide();
+    $('.stepThree').hide();
+    $('.login').hide();
+    $('.swipe').hide();
+    $('.confirm').hide();
+    $('.contact').hide();
+    $('.entry').show();
+    $('.stepOne').show();
+  }
 
   //Populates secret form field with a prompt
   $('[name = "secret"]').val(prompts[Math.floor(Math.random() * prompts.length)]);

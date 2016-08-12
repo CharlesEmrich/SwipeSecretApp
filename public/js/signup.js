@@ -64,5 +64,6 @@ $('#stepThreeButton').on('click', function(e){
     resetView('swipe');
     localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
+    initSwipeView();
   });
 });
