@@ -9,21 +9,18 @@ $('#loginButton').on('click', function(e){
     email: form.email.value,
     password: form.password.value
   };
-  console.log(data);
   $.ajax({
     method: 'POST',
     url: '/auth/signin',
     contentType: 'application/json',
     data: JSON.stringify(data)
-  }).fail(function(res){
-    console.log('in the fail');
-    //TODO res contains the error message, so send this to the client
-    //and don't allow the swipe view to change
+  }).fail(function(){
+    alert('Uh Oh, there was an issue with either your email or password, please make the necessary changes and try again.');
+    return false;
   }).done(function(res){
-    console.log('in the done');
-    console.log(res);
-    //TODO set to appropriate swipe view
-    localStorage.setItem('userId', JSON.stringify(res.payload.id));
+    resetView('swipe');
+    localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
+    initSwipeView();
   });
 });

@@ -36,6 +36,10 @@ h6 {
   margin-bottom: 10px;
 }
 
+h4 {
+  font-size: 5em;
+}
+
 a, a:link, a:visited {
   color: #ddd;
   text-decoration: none;
@@ -58,7 +62,8 @@ body {
 }
 
 .fullbleed {
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background-size: cover;
 }
 
@@ -69,11 +74,13 @@ body {
 
 .overlay {
   background-color: rgba(0,0,0,0.6);
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .custom {
   height: 100%;
+  min-height: 0;
 }
 
 .scroll {
@@ -141,10 +148,10 @@ button {
   border: 2px solid #ddd;
   background-color: transparent;
   color: #ddd;
-  padding: 10px 100px;
-  margin-left: calc(50% - 125px);
+  padding: 10px 20px;
+  /*margin-left: calc(50% - 125px);*/
   margin-top: 20px;
-  font-size: 2em;
+  font-size: 1.25em;
   font-weight: 200;
   outline: none;
 }
@@ -153,6 +160,6 @@ button:hover {
   border: 2px solid #fff;
 }
 
-.stepTwo, .stepThree, .login, .swipe, .confirm, .contact {
+.stepTwo, .stepThree, .login, .swipe, .confirm, .contact, #activityNav {
   display: none;
 }
