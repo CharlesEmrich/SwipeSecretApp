@@ -43,10 +43,11 @@ function compile (templateId, content) {
 $(document).ready(function(){
 
   if(localStorage.token && localStorage.userId){
-    // initSwipeView();
-    // resetView('swipe');
-    resetView('confirm');
-    initMutualView();
+    initSwipeView();
+    resetView('swipe');
+    $('#activityNav').show();
+    // resetView('confirm');
+    // initMutualView();
   } else {
     $('.stepTwo').hide();
     $('.stepThree').hide();
@@ -100,4 +101,17 @@ $('#loginNav').on('click', function(e){
   $('.stepThree').hide();
   $('.entry').hide();
   $('.login').show();
+});
+
+$('#activityNav').on('click', function(e) {
+  e.preventDefault();
+  initMutualView();
+  $('.swipe').hide();
+  $('.contact').hide();
+  $('.stepOne').hide();
+  $('.stepTwo').hide();
+  $('.stepThree').hide();
+  $('.entry').hide();
+  $('.login').hide();
+  $('.confirm').show();
 });

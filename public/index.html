@@ -19,7 +19,7 @@
     </script>
     <!-- template for confirm view, shows secret, gender, orientation, interestedIn, and location -->
     <script id="confirm-template" type="text/x-handlebars-template">
-      <h1>{{secret}}</h1>
+      <h4>{{secret}}</h4>
       <div class="details">
         <p>{{location}}</p>
         <p>{{gender}}</p>
@@ -32,11 +32,11 @@
         <button class="left">Previous</button>
         <button class="right">Next</button>
       </div>
-      <div class="confirmVote">
+      <!-- <div class="confirmVote">
         <button class="acceptConfirm">Accept</button>
         <button class="rejectConfirm">Reject</button>
-      </div>
-      <!-- <script type="text/javascript"> assignMutualClickHandlers() </script> -->
+      </div> -->
+      <script type="text/javascript"> assignMutualClickHandlers() </script>
     </script>
     <!-- template for contact view, shows all user details -->
     <script id="contact-template" type="text/x-handlebars-template">
@@ -62,6 +62,7 @@
           <nav>
             <a href="#" id="loginNav">Login</a>
             <a href="#" id="joinNav">Join</a>
+            <a href="#" id="activityNav">Activity</a>
           </nav>
         </header>
         <main>
@@ -124,7 +125,7 @@
           <!-- confirm page -->
 
           <div class="confirm">
-            <!-- <h1>Confirm Match?</h1> -->
+            <h1>Confirm Match?</h1>
               <div id="currentMatch"></div>
             <!-- confirmation and additional details will show here -->
           </div>
@@ -138,7 +139,7 @@
 
           <!-- footer -->
 
-          <!-- <div class="scroll">
+          <div class="scroll">
             <h6>scroll down for more information</h6>
           </div>
         </main>
@@ -153,7 +154,7 @@
           <h6>-The Swipe Secret Crew</h6>
         </main>
       </div>
-    </div> -->
+    </div>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="/js/view.js"></script>
