@@ -1,3 +1,11 @@
+function compile (templateId, content) {
+  var source = $('#' + templateId).html();
+  console.log(source);
+  // eslint-disable-next-line
+  var template = Handlebars.compile(source);
+  return template(content);
+}
+
 function initSwipeView() {
   $.ajax({
     method: 'GET',
