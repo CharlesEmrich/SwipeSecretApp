@@ -26,6 +26,14 @@
         <h5>Confirm the match</h5>
         <h5>Back out of the match</h5>
       </div>
+      <div class="move">
+        <button class="left">Previous</button>
+        <button class="right">Next</button>
+      </div>
+      <div class="confirmVote">
+        <button class="acceptConfirm">Accept</button>
+        <button class="rejectConfirm">Reject</button>
+      </div>
     </script>
     <!-- template for contact view, shows all user details -->
     <script id="contact-template" type="text/x-handlebars-template">
@@ -120,9 +128,7 @@
 
           <div class="contact">
             <h1>Take a Chance</h1>
-            <div class="showContact">
               <!-- contact user for a confirmed match will show here -->
-            </div>
           </div>
 
           <!-- footer -->
@@ -144,6 +150,8 @@
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="/js/view.js"></script>
     <script type="text/javascript" src="/js/login.js"></script>
     <script type="text/javascript" src="/js/vote.js"></script>

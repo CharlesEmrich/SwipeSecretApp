@@ -1,21 +1,24 @@
-//Run this when the view is initially loaded:
+function compile (templateId, content) {
+  var source = $('#' + templateId).html();
+  console.log(source);
+  // eslint-disable-next-line
+  var template = Handlebars.compile(source);
+  return template(content);
+}
+
 function initSwipeView() {
   $.ajax({
     method: 'GET',
-    url: `/interaction/popSecret/${localStorage.userId}`
+    url: '/secret/popSecret/' + localStorage.userId
   })
   .done(function(res) {
     //TODO: Use res.body to populate swipe view.
+    //TODO: Stash target values in localStorage
+    const secretDiv = compile('secret-template', {secret: res.secret.text});
+    $('.swipe').append(secretDiv);
 
-    //Hide and show appropriat elements.
-    $('.stepOne').hide();
-    $('.stepTwo').hide();
-    $('.stepThree').hide();
-    $('.login').hide();
-    $('.confirm').hide();
-    $('.contact').hide();
-    $('.entry').hide();
-    $('.swipe').show();
+    localStorage.setItem('targetId', res._id);
+    localStorage.setItem('targetSecretId', res.secret._id);
   });
 }
 

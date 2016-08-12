@@ -9,7 +9,6 @@ $('#loginButton').on('click', function(e){
     email: form.email.value,
     password: form.password.value
   };
-  console.log(data);
   $.ajax({
     method: 'POST',
     url: '/auth/signin',
@@ -19,10 +18,9 @@ $('#loginButton').on('click', function(e){
     alert('Uh Oh, there was an issue with either your email or password, please make the necessary changes and try again.');
     return false;
   }).done(function(res){
-    initSwipeView();
-
-    //TODO set to appropriate swipe view
-    localStorage.setItem('userId', JSON.stringify(res.payload.id));
+    resetView('swipe');
+    localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
+    initSwipeView();
   });
 });
