@@ -80,6 +80,7 @@ body {
 
 .custom {
   height: 100%;
+  min-height: 0;
 }
 
 .scroll {

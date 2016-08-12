@@ -55,11 +55,12 @@ $('#stepThreeButton').on('click', function(e){
     url: '/auth/signup',
     contentType: 'application/json',
     data: JSON.stringify(data)
-  }).fail(function(res){
+  }).fail(function(){
     alert('There was an error signing up');
     return false;
   })
   .done(function(res){
+    //eslint-disable-next-line
     resetView('swipe');
     localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
