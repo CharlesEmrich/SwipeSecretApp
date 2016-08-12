@@ -76,21 +76,19 @@ function assignMutualClickHandlers() {
     $('#denyMatch').on('click', function() {
       let admireInteraction = admirers.find(function(ele) {
         return ele.originatorId === admirers[currentIndex].originatorId;
-      })._id;
+      });
 
       let crushInteraction = crushes.find(function(ele) {
-        return ele.targetId === admirers[currentIndex].originatorId;
+        return ele.targetId === admireInteraction.originatorId._id;
       });
-      console.log(crushes);
-      console.log(crushInteraction);
 
       $.ajax({
         method: 'PUT',
         url: 'interaction/rejectMatch',
         contentType: 'application/json',
         data: JSON.stringify({
-          admireInteraction,
-          crushInteraction
+          admireInteraction: admireInteraction._id,
+          crushInteraction: crushInteraction._id
         })
       })
       .done(function(){
