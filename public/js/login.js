@@ -32,8 +32,6 @@ $('#loginButton').on('click', function(e){
     resetView();
     localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
-
     initSwipeView();
-
   });
 });

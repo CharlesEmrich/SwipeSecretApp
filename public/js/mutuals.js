@@ -82,29 +82,27 @@ function assignMutualClickHandlers() {
         }
       })
       .done(function(){
-        //Remove rejected match from mutuals.
+        //Remove rejectadmirersed match from mutuals.
         admirers.splice(currentIndex, 1);
         //Simulate a move-right action.
         currentIndex ++;
-        if (currentIndex > mutuals.length) currentIndex = 0;
-        //TODO: populate the view using mutuals[currentIndex]
+        if (currentIndex > admirers.length) currentIndex = 0;
+        mutualCompile(currentIndex);
         //NOTE: Make sure to show extra info if both of you have confirmed
       });
     });
+
+  $('.right').on('click', function() {
+    currentIndex ++;
+    if (currentIndex > admirers.length) currentIndex = 0;
+    mutualCompile(currentIndex);
+    //NOTE: Make sure to show extra info if both of you have confirmed
+  });
+
+  $('.left').on('click', function() {
+    currentIndex --;
+    if (currentIndex < 0) currentIndex = admirers.length;
+    mutualCompile(currentIndex);
+    //NOTE: Make sure to show extra info if both of you have confirmed
+  });
 }
-//   $('.right').on('click', function() {
-//     currentIndex ++;
-//     if (currentIndex > mutuals.length) currentIndex = 0;
-//     //TODO: populate the view using mutuals[currentIndex]
-//     //NOTE: Make sure to show extra info if both of you have confirmed
-//   });
-//
-//   $('.left').on('click', function() {
-//     currentIndex --;
-//     if (currentIndex < 0) currentIndex = mutuals.length;
-//     //TODO: populate the view using mutuals[currentIndex]
-//     //NOTE: Make sure to show extra info if both of you have confirmed
-//
-//   });
-//
-// }
