@@ -4,6 +4,7 @@ function initSwipeView() {
     url: '/secret/popSecret/' + localStorage.userId
   })
   .done(function(res) {
+    console.log('test for heroku', res.secret);
     const secretDiv = compile('secret-template', {secret: res.secret.text});
     $('#currentSecret').html(secretDiv);
 
