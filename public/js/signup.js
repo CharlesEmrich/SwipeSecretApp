@@ -1,4 +1,3 @@
-
 // hides all but the email, password, confirm view
 $('#stepOneButton').on('click', function(e){
   e.preventDefault();
@@ -39,11 +38,8 @@ $('#stepTwoButton').on('click', function(e){
 $('#stepThreeButton').on('click', function(e){
   e.preventDefault();
   let data = {
-    //TODO: Is there seriously no better way to do this?
-    //TODO: Current version of form has no place for names.
-    firstName: '',
-    lastName: '',
     /* eslint-disable */
+    firstName: form.firstName.value,
     password: form.password.value,
     secret: form.secret.value,
     location: form.location.value,
@@ -65,8 +61,8 @@ $('#stepThreeButton').on('click', function(e){
   })
   .done(function(res){
     resetView('swipe');
-    //NOTE: vote.js has as much of this as I've figured out.
     localStorage.setItem('userId', res.payload.id);
     localStorage.setItem('token', res.token);
+    initSwipeView();
   });
 });

@@ -13,6 +13,8 @@
       <div class="votes">
         <button id="approve">Approve</button>
         <button id="reject">Reject</button>
+        <button id="report">Report</button>
+        <script type="text/javascript"> assignVoteClickHandlers(); </script>
       </div>
     </script>
     <!-- template for confirm view, shows secret, gender, orientation, interestedIn, and location -->
@@ -23,9 +25,9 @@
         <p>{{gender}}</p>
         <p>{{orientation}}</p>
         <p>{{interestedIn}}</p>
-        <h5>Confirm the match</h5>
-        <h5>Back out of the match</h5>
-      </div>
+        <button id="confirmMatch">Confirm Match</button>
+        <button id="denyMatch">Deny Match</button>
+        </div>
       <div class="move">
         <button class="left">Previous</button>
         <button class="right">Next</button>
@@ -34,6 +36,7 @@
         <button class="acceptConfirm">Accept</button>
         <button class="rejectConfirm">Reject</button>
       </div>
+      <!-- <script type="text/javascript"> assignMutualClickHandlers() </script> -->
     </script>
     <!-- template for contact view, shows all user details -->
     <script id="contact-template" type="text/x-handlebars-template">
@@ -114,13 +117,15 @@
 
           <div class="swipe">
             <h1>Get Swiping</h1>
+              <div id="currentSecret"></div>
             <!-- secret template will insert a secret text here -->
           </div>
 
           <!-- confirm page -->
 
           <div class="confirm">
-            <h1>Confirm Match?</h1>
+            <!-- <h1>Confirm Match?</h1> -->
+              <div id="currentMatch"></div>
             <!-- confirmation and additional details will show here -->
           </div>
 
@@ -133,7 +138,7 @@
 
           <!-- footer -->
 
-          <div class="scroll">
+          <!-- <div class="scroll">
             <h6>scroll down for more information</h6>
           </div>
         </main>
@@ -148,12 +153,13 @@
           <h6>-The Swipe Secret Crew</h6>
         </main>
       </div>
-    </div>
+    </div> -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="/js/view.js"></script>
     <script type="text/javascript" src="/js/login.js"></script>
     <script type="text/javascript" src="/js/vote.js"></script>
     <script type="text/javascript" src="/js/signup.js"></script>
+    <script type="text/javascript" src="/js/mutuals.js"></script>
   </body>
 </html>
