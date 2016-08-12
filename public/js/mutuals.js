@@ -35,61 +35,76 @@ function initMutualView() {
       admirers = res[0];
       crushes = res[1];
 
-      mutualCompile(currentIndex);
+      if(admirers.length === 0) {$('#currentMatch').html('<h4> No mutual matches found. </h4>');}
+      else {
+        mutualCompile(currentIndex);
+      }
 
     //NOTE: Make sure to show extra info if both of you have confirmed
     });
 }
 
 function assignMutualClickHandlers() {
-    $('.acceptConfirm').on('click', function() {
+    $('#confirmMatch').on('click', function() {
 
       let interactionId = admirers.find(function(ele) {
         return ele.originatorId === admirers[currentIndex].originatorId;
       })._id;
+
+      // console.log(interactionId);
 
       //TODO: ajax confirmation to somewhere via POST
       $.ajax({
         method: 'PUT',
         url: '/interaction/' + interactionId,
         contentType: 'application/json',
-        data: {
+        data: JSON.stringify({
           confirm: true
-        }
+        })
+      })
+      .fail(function(err){
+        console.log(err);
+      })
+      .done(function(){
+        alert('Match confirmed!');
       });
       //FAILURE or DONE handlers.
       //TODO: If you have both confirmed, show additional information
 
     });
 
-    $('.rejectConfirm').on('click', function() {
+    $('#denyMatch').on('click', function() {
       let admireInteraction = admirers.find(function(ele) {
         return ele.originatorId === admirers[currentIndex].originatorId;
       })._id;
 
       let crushInteraction = crushes.find(function(ele) {
         return ele.targetId === admirers[currentIndex].originatorId;
-      })._id;
+      });
+      console.log(crushes);
+      console.log(crushInteraction);
 
-      //TODO: ajax rejection to somewhere via POST
       $.ajax({
         method: 'PUT',
         url: 'interaction/rejectMatch',
         contentType: 'application/json',
-        data: {
+        data: JSON.stringify({
           admireInteraction,
           crushInteraction
-        }
+        })
       })
       .done(function(){
-        //Remove rejectadmirersed match from mutuals.
-        admirers.splice(currentIndex, 1);
-        //Simulate a move-right action.
-        currentIndex ++;
-        if (currentIndex > admirers.length) currentIndex = 0;
-        mutualCompile(currentIndex);
-        //NOTE: Make sure to show extra info if both of you have confirmed
-      });
+        alert('Love is over.');
+      })
+      // .done(function(){
+      //   //Remove rejectadmirersed match from mutuals.
+      //   admirers.splice(currentIndex, 1);
+      //   //Simulate a move-right action.
+      //   currentIndex ++;
+      //   if (currentIndex > admirers.length) currentIndex = 0;
+      //   mutualCompile(currentIndex);
+      //   //NOTE: Make sure to show extra info if both of you have confirmed
+      // });
     });
 
   $('.right').on('click', function() {
