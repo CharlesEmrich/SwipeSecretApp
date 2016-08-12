@@ -31,12 +31,22 @@ function resetView (divClass) {
   $('.' + divClass).show();
 }
 
+function compile (templateId, content) {
+  var source = $('#' + templateId).html();
+  // console.log(source);
+  // eslint-disable-next-line
+  var template = Handlebars.compile(source);
+  return template(content);
+}
+
 // when app loads OR joinButton OR logo are pressed, hides all but the "enter your secret" view
 $(document).ready(function(){
 
   if(localStorage.token && localStorage.userId){
-    initSwipeView();
-    resetView('swipe');
+    // initSwipeView();
+    // resetView('swipe');
+    resetView('confirm');
+    initMutualView();
   } else {
     $('.stepTwo').hide();
     $('.stepThree').hide();

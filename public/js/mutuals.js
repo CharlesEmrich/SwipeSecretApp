@@ -1,65 +1,110 @@
 // NOTE: OK, so we're using a modified swipe view. Can you navigate this view without voting? It seems like you should be able to?
-function initMutualView() {
-  let mutuals = [];
-  let currentIndex = 0;
 
-  //On view-load:
+let admirers = [];
+let crushes = [];
+let currentIndex = 0;
+
+function mutualCompile(idx) {
   $.ajax({
     method: 'GET',
-    url: '[something]/mutuals',
-    contentType: 'application/json',
-    data: {
-      userId: localStorage.userId
-      //I honestly think that's all we need?
-    }
-  }).fail(function(res){
-    console.log('in the fail');
-    //TODO res contains the error message, so send this to the client
-    //and don't allow the swipe view to change
-  }).done(function(res){
-    console.log('in the done');
-    console.log(res);
-    mutuals = res;
-    // TODO: Populate the view usings mutuals[0].originatorId
-    //NOTE: Make sure to show extra info if both of you have confirmed
-  });
-
-  //Click handlers
-
-  $('#moveright').on('click', function() {
-    currentIndex ++;
-    if (currentIndex > mutuals.length) currentIndex = 0;
-    //TODO: populate the view using mutuals[currentIndex]
-    //NOTE: Make sure to show extra info if both of you have confirmed
-  });
-
-  $('#moveleft').on('click', function() {
-    currentIndex --;
-    if (currentIndex < 0) currentIndex = mutuals.length;
-    //TODO: populate the view using mutuals[currentIndex]
-    //NOTE: Make sure to show extra info if both of you have confirmed
-
-  });
-
-  $('#acceptMatch').on('click', function() {
-    //TODO: ajax confirmation to somewhere via POST (creating interaction or nah?)
-    //Suspect that this is creating an Interaction with confirm: true between the two of us and testing whether a reciprocal exists.
-
-    //TODO: If you have both confirmed, show additional information
-  });
-
-  $('#rejectMatch').on('click', function() {
-    //TODO: ajax rejection to somewhere via POST (creating interaction or nah?)
-    //Suspect that this is creating an Interaction with confirm: false.
-    //TODO: userIds with a confirm: false Interaction should be excluded from popMutuals.
-
-    //Remove rejected match from mutuals.
-    mutuals.splice(currentIndex, 1);
-    //Simulate a move-right action.
-    currentIndex ++;
-    if (currentIndex > mutuals.length) currentIndex = 0;
-    //TODO: populate the view using mutuals[currentIndex]
-    //NOTE: Make sure to show extra info if both of you have confirmed
-
+    url: 'secret/' + admirers[idx].originatorId.secret
+  })
+  .done(function(res){
+    let templateContent = {
+      secret: res.text,
+      location: admirers[idx].originatorId.location,
+      gender: admirers[idx].originatorId.gender,
+      orientation: admirers[idx].originatorId.orientation,
+      interestedIn: admirers[idx].originatorId.interestedIn
+    };
+    // console.log(templateContent);
+    const matchDiv = compile('confirm-template', templateContent);
+    $('#currentMatch').html(matchDiv);
   });
 }
+
+function initMutualView() {
+  $.ajax({
+    method: 'GET',
+    url: 'interaction/mutuals/' + localStorage.userId
+  })
+    .fail(function(res){
+      alert('Could not get mutuals');
+    //and don't allow the swipe view to change
+    }).done(function(res){
+      admirers = res[0];
+      crushes = res[1];
+
+      mutualCompile(currentIndex);
+
+    //NOTE: Make sure to show extra info if both of you have confirmed
+    });
+}
+
+function assignMutualClickHandlers() {
+    $('.acceptConfirm').on('click', function() {
+
+      let interactionId = admirers.find(function(ele) {
+        return ele.originatorId === admirers[currentIndex].originatorId;
+      })._id;
+
+      //TODO: ajax confirmation to somewhere via POST
+      $.ajax({
+        method: 'PUT',
+        url: '/interaction/' + interactionId,
+        contentType: 'application/json',
+        data: {
+          confirm: true
+        }
+      });
+      //FAILURE or DONE handlers.
+      //TODO: If you have both confirmed, show additional information
+
+    });
+
+    $('.rejectConfirm').on('click', function() {
+      let admireInteraction = admirers.find(function(ele) {
+        return ele.originatorId === admirers[currentIndex].originatorId;
+      })._id;
+
+      let crushInteraction = crushes.find(function(ele) {
+        return ele.targetId === admirers[currentIndex].originatorId;
+      })._id;
+
+      //TODO: ajax rejection to somewhere via POST
+      $.ajax({
+        method: 'PUT',
+        url: 'interaction/rejectMatch',
+        contentType: 'application/json',
+        data: {
+          admireInteraction,
+          crushInteraction
+        }
+      })
+      .done(function(){
+        //Remove rejected match from mutuals.
+        admirers.splice(currentIndex, 1);
+        //Simulate a move-right action.
+        currentIndex ++;
+        if (currentIndex > mutuals.length) currentIndex = 0;
+        //TODO: populate the view using mutuals[currentIndex]
+        //NOTE: Make sure to show extra info if both of you have confirmed
+      });
+    });
+}
+//   $('.right').on('click', function() {
+//     currentIndex ++;
+//     if (currentIndex > mutuals.length) currentIndex = 0;
+//     //TODO: populate the view using mutuals[currentIndex]
+//     //NOTE: Make sure to show extra info if both of you have confirmed
+//   });
+//
+//   $('.left').on('click', function() {
+//     currentIndex --;
+//     if (currentIndex < 0) currentIndex = mutuals.length;
+//     //TODO: populate the view using mutuals[currentIndex]
+//     //NOTE: Make sure to show extra info if both of you have confirmed
+//
+//   });
+//
+// }
