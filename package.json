@@ -8,14 +8,18 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "mocha -w"
+  },
+  "engines": {
+    "node": "6.2.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/katesowles/SwipeSecretApp.git"
   },
   "author": {
-    "developer": "Kate Sowles <katesowles@gmail.com>"
+    "developer": "Charles Emrich <charles.emrich@gmail.com>"
   },
   "license": "MIT",
   "bugs": {
@@ -29,7 +33,15 @@
     "nodemon": "^1.10.0"
   },
   "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "mongoose": "^4.5.8"
+    "handlebars": "^4.0.5",
+    "jquery": "^3.1.0",
+    "jquery-touchswipe": "^1.6.15",
+    "jsonwebtoken": "^7.1.7",
+    "mongoose": "^4.5.8",
+    "morgan": "^1.7.0",
+    "json-schema-faker": "^0.3.6"
   }
 }

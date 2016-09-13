@@ -9,11 +9,7 @@
       2,
       "single"
     ],
-    "linebreak-style": [
-      2,
-      "unix"
-        ],
-        "semi": [
+    "semi": [
           2,
           "always"
         ]
@@ -29,7 +25,8 @@
     "beforeEach": false,
     "afterEach": false,
     "before": false,
-    "after": false
+    "after": false,
+    "$": false
   },
   "ecmaFeatures": {
     "modules": true,
